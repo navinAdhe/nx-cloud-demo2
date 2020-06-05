@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo-app2';
+
+  demo2function(){
+    
+  }
 }
