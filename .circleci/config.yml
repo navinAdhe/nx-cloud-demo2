@@ -1,0 +1,15 @@
+jobs:
+  build-master:
+    executor: default
+    steps:
+      - setup
+      - run: yarn nx affected --target=lint --base=origin/master~1 --parallel
+      - run: yarn nx affected --target=test --base=origin/master~1 --parallel
+      - run: yarn nx affected --target=build --base=origin/master~1 --parallel
+  build-pr:
+    executor: default
+    steps:
+      - setup
+      - run: yarn nx affected --target=lint --base=origin/master --parallel
+      - run: yarn nx affected --target=test --base=origin/master --parallel
+      - run: yarn nx affected --target=build --base=origin/master --parallel
